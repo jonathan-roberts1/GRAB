@@ -154,14 +154,85 @@ grab_accuracy = output_df["Correct?"].mean()
 print(f"GRAB Accuracy: {100 * grab_accuracy:.2f}%")
 ```
 
-### Gemini using downloaded images file
-TODO
+### Inference using ```images``` and ```grab.json```
 
-### Automatic evaluation
-TODO
+```python
+import json
+from PIL import Image
 
-### json file.
 
+with open('data/grab.json', 'r') as f:
+    grab_dataset_dict = json.load(f)
+
+for _, value in grab_dataset_dict.items():
+  question = value['question']
+  image_filepath = 'data/' + value['image']
+  img = Image.open(image_filepath)
+
+  # construct prompt using question and img...
+```
+
+### Evaluation with LLM
+Especially for LMMs that tend to generate verbose output, performance on GRAB can be increased by leveraging an LLM to automatically extract the answer.
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM 
+import torch
+
+
+def llama3_answer_extraction(question, model_output, tokenizer, model):
+
+    prompt_template = \
+    """    
+    A generative model has been asked this question: "{question}" about a plot.\n
+    The output from the model answering the question is: "{output}"\n
+    Extract just the answer from the generative model output. Maintain the same precision given by the model. 
+    Convert any numbers to digits (e.g., "one" to "1"). Remove any additional terms like 'approximately'.
+    Return only the extracted numeric answer, without any additional text or explanation. If no answer is provided, return "None".
+    """
+    prompt = prompt_template.format(question=question, output=model_output)
+    
+    messages = [
+        {"role": "user", "content": prompt},
+    ]
+
+    input_ids = tokenizer.apply_chat_template(
+        messages,
+        add_generation_prompt=True,
+        return_tensors="pt"
+        ).to(model.device)
+
+    terminators = [
+    tokenizer.eos_token_id,
+    tokenizer.convert_tokens_to_ids("<|eot_id|>")
+    ]
+
+    outputs = model.generate(
+        input_ids,
+        max_new_tokens=100,
+        eos_token_id=terminators,
+        do_sample=False,
+        temperature=None,
+        top_p=None
+    )
+    response = outputs[0][input_ids.shape[-1]:]
+    response_text = tokenizer.decode(response, skip_special_tokens=True)
+    print(response_text)
+    return response_text
+
+# -- example usage -- #
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+# load open source model
+tokenizer = AutoTokenizer.from_pretrained('meta-llama/Meta-Llama-3.1-8B-Instruct')
+model = AutoModelForCausalLM.from_pretrained(
+                                        'meta-llama/Meta-Llama-3.1-8B-Instruct',
+                                        torch_dtype=torch.bfloat16,
+                                        ).to(device)
+question: str 
+model_output: str # generated previously
+extracted_answer = llama3_answer_extraction(question, model_output, tokenizer, model)         
+
+```
 
 
 
