@@ -228,9 +228,9 @@ model = AutoModelForCausalLM.from_pretrained(
                                         'meta-llama/Meta-Llama-3.1-8B-Instruct',
                                         torch_dtype=torch.bfloat16,
                                         ).to(device)
-question: str 
-model_output: str # generated previously
-extracted_answer = llama3_answer_extraction(question, model_output, tokenizer, model)         
+# question: str
+# model_output: str #(generated previously)
+# extracted_answer = llama3_answer_extraction(question, model_output, tokenizer, model)         
 
 ```
 
