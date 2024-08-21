@@ -4,21 +4,28 @@
 
 ### Jonathan Roberts, Kai Han, Samuel Albanie
 
-Overview of GRAB.
+Large multimodal models (LMMs) have exhibited proficiencies across many visual tasks. Although numerous benchmarks exist to evaluate model performance, they increasingly have insufficient headroom and are **unfit to evaluate the next generation of frontier LMMs**.
 
-This accompanying repository contains...
+To overcome this, we present **GRAB**, a challenging benchmark focused on the tasks **human analysts** might typically perform when interpreting figures. Such tasks include estimating the mean, intercepts or correlations of functions and data series and performing transforms.
 
+We evaluate a suite of **20 LMMs** on GRAB, finding it to be a challenging benchmark, with the current best model scoring just **21.7%**.
+
+#### This repository contains a summary of the key findings from our paper, instructions and example code to both access the GRAB benchmark data and evaluate on it.
 ### Contents
   - [News](#news)
-  - [Key Insights](#key-insights)
+  - [Key Information](#key-information)
   - [Data](#data)
   - [Evaluation](#evaluation)
 
-    
 ## News
 🎉 **[22/08/24]** Initial release!
 
-## Key Insights
+## Key Information
+- GRAB contains 2170 graph analysis questions
+- Each question includes a unique synthetically generated graph
+- The questions test graph analysis capabilities of varying complexity
+- Some questions include multiple series, function or transforms
+- GRAB proves challenging for current models, with the highest performing scoring just 21.7%.
 
 ## Data
 
@@ -153,7 +160,7 @@ TODO
 ### Automatic evaluation
 TODO
 
-
+### json file.
 
 
 
