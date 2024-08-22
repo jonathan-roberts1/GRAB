@@ -1,6 +1,6 @@
 # GRAB: A Challenging <ins>GR</ins>aph <ins>A</ins>nalysis <ins>B</ins>enchmark for Large Multimodal Models
 
-### [[Project Page](https://grab-benchmark.github.io)] [[Paper]()] [[Data](https://huggingface.co/datasets/jonathan-roberts1/GRAB)] [[Code](https://github.com/jonathan-roberts1/GRAB/)] [[Leaderboard](https://grab-benchmark.github.io)]
+### [[Project Page](https://grab-benchmark.github.io)] [[Paper](https://arxiv.org/abs/2408.11817)] [[Data](https://huggingface.co/datasets/jonathan-roberts1/GRAB)] [[Code](https://github.com/jonathan-roberts1/GRAB/)] [[Leaderboard](https://grab-benchmark.github.io)]
 
 ### Jonathan Roberts, Kai Han, Samuel Albanie
 
@@ -231,9 +231,19 @@ model = AutoModelForCausalLM.from_pretrained(
 # question: str
 # model_output: str #(generated previously)
 # extracted_answer = llama3_answer_extraction(question, model_output, tokenizer, model)         
-
 ```
 
+
+## Citation
+If you found our work useful in your own research, please consider citing our paper:
+```latex
+@article{roberts2024grab,
+      title={GRAB: A Challenging GRaph Analysis Benchmark for Large Multimodal Models}, 
+      author={Jonathan Roberts and Kai Han and Samuel Albanie},
+      year={2024},
+      journal={arXiv preprint arXiv:2408.11817},
+}
+```
 
 
 
