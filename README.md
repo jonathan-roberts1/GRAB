@@ -238,10 +238,10 @@ model = AutoModelForCausalLM.from_pretrained(
 If you found our work useful in your own research, please consider citing our paper:
 ```latex
 @article{roberts2024grab,
-      title={GRAB: A Challenging GRaph Analysis Benchmark for Large Multimodal Models}, 
-      author={Jonathan Roberts and Kai Han and Samuel Albanie},
-      year={2024},
-      journal={arXiv preprint arXiv:2408.11817},
+  title={GRAB: A Challenging GRaph Analysis Benchmark for Large Multimodal Models},
+  author={Roberts, Jonathan and Han, Kai and Albanie, Samuel},
+  journal={arXiv preprint arXiv:2408.11817},
+  year={2024}
 }
 ```
 
