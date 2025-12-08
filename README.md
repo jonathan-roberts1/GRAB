@@ -1,6 +1,8 @@
 # GRAB: A Challenging <ins>GR</ins>aph <ins>A</ins>nalysis <ins>B</ins>enchmark for Large Multimodal Models
 
-### [[Project Page](https://grab-benchmark.github.io)] [[Paper](https://arxiv.org/abs/2408.11817)] [[Data](https://huggingface.co/datasets/jonathan-roberts1/GRAB)] [[Code](https://github.com/jonathan-roberts1/GRAB/)] [[Leaderboard](https://grab-benchmark.github.io)]
+**ICCV 2025**
+
+### [Project Page](https://grab-benchmark.github.io) | [Paper](https://arxiv.org/abs/2408.11817) | [Data](https://huggingface.co/datasets/jonathan-roberts1/GRAB) | [Code](https://github.com/jonathan-roberts1/GRAB/) | [Leaderboard](https://grab-benchmark.github.io) | [ICCV](https://iccv.thecvf.com/virtual/2025/poster/1963)
 
 ### Jonathan Roberts, Kai Han, Samuel Albanie
 
@@ -18,7 +20,9 @@ We evaluate a suite of **20 LMMs** on GRAB, finding it to be a challenging bench
   - [Evaluation](#evaluation)
 
 ## News
+🎉 **[10/25]** Presented at ICCV 2025!<br>
 🎉 **[22/08/24]** Initial release!
+
 
 ## Key Information
 - GRAB contains 2170 graph analysis questions
